@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@font-face {
+  font-family: 'KFGQPC Uthmani Script';
+  src: url('/fonts/KFGQPCNastaleeq-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 214 32% 97%;
+    --foreground: 215 28% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 28% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 16% 25%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 215 28% 12%;
+
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 215 28% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    --success: 142 71% 45%;
+    --error: 0 84% 60%;
+  }
+
+  .sepia {
+    --background: 40 40% 94%;
+    --foreground: 25 30% 20%;
+
+    --card: 38 50% 97%;
+    --card-foreground: 25 30% 20%;
+
+    --popover: 38 50% 97%;
+    --popover-foreground: 25 30% 20%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 40 40% 96%;
+
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 25 30% 20%;
+
+    --muted: 40 30% 88%;
+    --muted-foreground: 25 25% 40%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 25 30% 20%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 40% 96%;
+
+    --border: 40 25% 82%;
+    --input: 40 25% 82%;
+    --ring: 221 83% 53%;
+
+    --success: 142 71% 45%;
+    --error: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 216 71% 6%;
+    --foreground: 210 40% 94%;
+
+    --card: 217 50% 10%;
+    --card-foreground: 210 40% 94%;
+
+    --popover: 217 50% 10%;
+    --popover-foreground: 210 40% 94%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 38 92% 50%;
+    --secondary-foreground: 216 71% 6%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 216 71% 6%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 221 83% 53%;
+
+    --success: 142 71% 45%;
+    --error: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Arabic text styling */
+  .arabic-text {
+    font-family: 'KFGQPC Uthmani Script', 'Amiri', 'Traditional Arabic', 'Arabic Typesetting', serif;
+    line-height: 2;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 768px) {
+    .arabic-text {
+      line-height: 2.2;
+    }
+  }
+
+  /* Frosted glass effect */
+  .glass-card {
+    background: hsl(var(--card) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Scroll animations */
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.6s ease-out forwards;
+  }
+}
